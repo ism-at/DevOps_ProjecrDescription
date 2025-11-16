@@ -74,64 +74,64 @@
 
 ------------------------------Example-----------------------------------
 
-name: CSharp Windows CI   # Workflow title
+    name: CSharp Windows CI   # Workflow title
 
-on:                       # Triggers
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  schedule:               # Runs every day at midnight
-    - cron: "0 0 * * *"
+    on:                       # Triggers
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
+    schedule:               # Runs every day at midnight
+        - cron: "0 0 * * *"
 
-jobs:
-  build:                  # First job
-    runs-on: windows-latest   # Job runs on Windows Server
-    timeout-minutes: 20       # Max runtime
+    jobs:
+    build:                  # First job
+        runs-on: windows-latest   # Job runs on Windows Server
+        timeout-minutes: 20       # Max runtime
 
-    env:                      # Job-level environment variables
-      CONFIGURATION: Release
+        env:                      # Job-level environment variables
+        CONFIGURATION: Release
 
-    steps:                    # Job steps
-      - name: Checkout code
-        uses: actions/checkout@v4
+        steps:                    # Job steps
+        - name: Checkout code
+            uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:                  # Passing parameters to an action
-          dotnet-version: "8.0.x"
+        - name: Setup .NET
+            uses: actions/setup-dotnet@v4
+            with:                  # Passing parameters to an action
+            dotnet-version: "8.0.x"
 
-      - name: Restore packages
-        run: dotnet restore    # Shell commands to execute
+        - name: Restore packages
+            run: dotnet restore    # Shell commands to execute
 
-      - name: Build project
-        run: dotnet build --configuration $env:CONFIGURATION
+        - name: Build project
+            run: dotnet build --configuration $env:CONFIGURATION
 
-      - name: Run unit tests
-        run: dotnet test --no-build --verbosity normal
+        - name: Run unit tests
+            run: dotnet test --no-build --verbosity normal
 
-      - name: Publish app
-        run: dotnet publish -c Release -o output
+        - name: Publish app
+            run: dotnet publish -c Release -o output
 
-    outputs:                    # Job output
-      build-path: output
+        outputs:                    # Job output
+        build-path: output
 
-    deploy:                       # Second job
-    runs-on: windows-latest
-    needs: build               # Depends on "build" job (job order)
+        deploy:                       # Second job
+        runs-on: windows-latest
+        needs: build               # Depends on "build" job (job order)
 
-    if: github.ref == 'refs/heads/main'   # Only run on main branch
+        if: github.ref == 'refs/heads/main'   # Only run on main branch
 
-    environment: production
+        environment: production
 
-    steps:
-      - name: Download built artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: published-app
+        steps:
+        - name: Download built artifact
+            uses: actions/download-artifact@v4
+            with:
+            name: published-app
 
-      - name: Deploy to server
-        run: |
-          echo "Deploying application..."
-          # Here you would deploy using PowerShell, FTP, WinRM, etc.
+        - name: Deploy to server
+            run: |
+            echo "Deploying application..."
+            # Here you would deploy using PowerShell, FTP, WinRM, etc.
 
