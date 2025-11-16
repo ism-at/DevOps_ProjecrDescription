@@ -116,7 +116,7 @@ jobs:
     outputs:                    # Job output
       build-path: output
 
-  deploy:                       # Second job
+    deploy:                       # Second job
     runs-on: windows-latest
     needs: build               # Depends on "build" job (job order)
 
