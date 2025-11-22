@@ -72,7 +72,7 @@
 - Indentation defines structure  
 - `#` for comments  
 
-------------------------------Example-----------------------------------
+------------------------------Example-------------------------------
 
     name: CSharp Windows CI   # Workflow title
 
