@@ -1,0 +1,13 @@
+{
+  "name": "devops01",
+  "version": "1.0.0",
+  "description": "main",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js",
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
