@@ -1,3 +1,8 @@
+# Installiation:
+    npm init -y
+    npm install express dotenv
+    edit dependencies to use ES6 module --> "type": "module"
+
 # Video Paused at:
         1:55 Kubernated
 
