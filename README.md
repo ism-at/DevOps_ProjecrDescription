@@ -1,6 +1,3 @@
-# Branch name:
-        main
-
 # Techstack
 
         Neon: Serverless PostgresSQL
@@ -13,9 +10,5 @@
         Jest: Unit-Testing
         CI/CD
 
-# ELK:
-        The ELK Stack, now called the Elastic Stack, is a set of three (or four with the addition of Beats) open-source tools used for searching, analyzing, and visualizing large volumes of data in real-time.
 
-# Min:  
-        1:40 - 1:45 Vol and reflect the changes
-        1:43 --> publish Docker image
+
