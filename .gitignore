@@ -1,9 +1,8 @@
 myNotes.md
-.gitignore
-./node_modules
+node_modules/
 .DS_Store
 npm-debug.log
 .env
 .vscode/
-dist/
-myNotes.md
+npm-debug.log
+screenshots/
