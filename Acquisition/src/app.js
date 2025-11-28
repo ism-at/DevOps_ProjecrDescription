@@ -3,7 +3,7 @@ import express from 'express';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.status(200).send('Running on frontend');
+  res.status(200).send('Server is up and running');
 });
 
 export default app;
